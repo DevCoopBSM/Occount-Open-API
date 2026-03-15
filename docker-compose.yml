@@ -1,0 +1,15 @@
+services:
+  occount-open-api:
+    image: guhyunwoo/occount-open-api:latest
+    container_name: occount-open-api
+    ports:
+      - '${SERVER_PORT}:8080'
+    env_file:
+      - .occount-open-api.env
+    restart: unless-stopped
+    networks:
+      - devnet
+
+networks:
+  devnet:
+    external: true

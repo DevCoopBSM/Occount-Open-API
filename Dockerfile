@@ -14,11 +14,7 @@ FROM eclipse-temurin:21-jre
 
 WORKDIR /app
 
-RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
-
 COPY --from=builder /app/build/libs/*.jar app.jar
-
-USER appuser
 
 EXPOSE 8080
 
